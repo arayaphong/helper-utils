@@ -1,0 +1,2 @@
+# AES-CBC decryption for DBeaver credentials-config.json
+pycryptodome>=3.15.0,<4.0.0

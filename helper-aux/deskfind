@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# search-desktop.sh
+set -euo pipefail
+
+usage() {
+  echo "Usage: $0 <pattern>" >&2
+  exit 1
+}
+
+# 1 – validate input -----------------------------------------------------------
+[[ $# -eq 1 ]] || usage
+pattern=$1
+
+# 2 – collect unique directories that contain *.desktop files ------------------
+#    • locate -0 => NUL-delimited output (safe for spaces/newlines)
+#    • mapfile   => read into a bash array efficiently
+mapfile -t desktop_dirs < <(
+  locate -0 -- "*.desktop" |
+  xargs -0 -n1 dirname |
+  sort -u
+)
+
+# 3 – grep through those dirs --------------------------------------------------
+#    • ${desktop_dirs[@]} passes each directory as its own argument
+#    • cut keeps only the filename; sort -u de-duplicates
+grep -r --include='*.desktop' -n "${pattern}" "${desktop_dirs[@]}" |
+  cut -d: -f1 |
+  sort -u
+
