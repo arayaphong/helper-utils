@@ -50,6 +50,17 @@ Most of these are standalone; add the directory to your `PATH` or symlink the sc
 
 ---
 
+## line-chrome-extension
+
+Helpers for the LINE Chrome extension app window and CDP-driven dark mode.
+
+| Script | Purpose |
+|--------|---------|
+| `line-launcher.sh` | Opens the LINE Chrome extension as a standalone app window, with optional CDP mode |
+| `line-darkmode-cdp.sh` | Forces auto dark mode on a Chrome extension page, with scan/export support |
+
+---
+
 ## openvpn3-gui-main
 
 A GTK+ 3.0 OpenVPN connection manager written in Vala. It provides a small GUI with connect/disconnect buttons, a status indicator, and a real-time output log. Privilege elevation is handled via `pkexec`.
