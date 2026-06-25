@@ -27,7 +27,7 @@ div#root > div.app > div.pageLayout-module__wrap__h-oSt {
 /* contrast=14.25 fg=rgb(255, 255, 255) bg=rgb(32, 42, 67) text='893' */
 div#root > div.app > div.pageLayout-module__wrap__h-oSt > div.gnb-module__gnb__01tnB:nth-of-type(1) {
   color: inherit !important;
-  background-color: inherit !important;
+  background-color: #202a43 !important;
 }
 /* contrast=14.25 fg=rgb(255, 255, 255) bg=rgba(0, 0, 0, 0) text='893' */
 div.app > div.pageLayout-module__wrap__h-oSt > div.gnb-module__gnb__01tnB:nth-of-type(1) > ul.gnb-module__nav_list__wRO2S:nth-of-type(1) {
@@ -94,10 +94,10 @@ i.icon.gnb-module__icon__RvjKM > svg > g > path {
   color: inherit !important;
   background-color: inherit !important;
 }
-/* contrast=3.53 fg=rgb(255, 255, 255) bg=rgb(255, 58, 68) text='893' */
+/* contrast=3.53 fg=rgb(255, 255, 255) bg=rgb(179, 3, 13) text='893' */
 div.gnb-module__gnb__01tnB:nth-of-type(1) > ul.gnb-module__nav_list__wRO2S:nth-of-type(1) > li.gnb-module__nav_list_item__tbnc4:nth-of-type(2) > div.gnb-module__badge__nU45a.badge-module__badge__Eh36I {
   color: #ffffff !important;
-  background-color: #741c21 !important;
+  background-color: #b3030d !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow: 0 0 0 1px rgba(127, 29, 29, 0.35) inset !important;
 }
@@ -514,6 +514,7 @@ html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj pre {
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj {
   border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  border-radius: 0 !important;
 }
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj pre {
