@@ -480,6 +480,10 @@ html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-
   overflow: hidden !important;
 }
 
+html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-5:not([data-content-type="sticker"]) {
+  border-radius: 0 !important;
+}
+
 html.helper-utils-dark-mode-root .textMessageContent-module__text__EFwEN {
   color: #e2e8f0 !important;
 }
