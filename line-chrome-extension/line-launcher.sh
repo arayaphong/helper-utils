@@ -9,7 +9,7 @@ PROFILE_DIR=""
 FOREGROUND=0
 ENABLE_CDP=0
 TEMP_PROFILE_DIR=""
-DEFAULT_CDP_PROFILE="/tmp/google-chrome-cdp-profile"
+DEFAULT_CDP_PROFILE="${XDG_DATA_HOME:-$HOME/.local/share}/helper-utils/google-chrome-cdp-profile"
 
 usage() {
   cat <<'EOF'

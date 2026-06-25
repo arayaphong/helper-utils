@@ -340,19 +340,49 @@ def send_and_wait(sock, message, expected_id, timeout=5):
                 sys.stdout.flush()
     raise TimeoutError(f"timed out waiting for response to id {expected_id}")
 
-targets = fetch_targets()
-target = find_target(targets)
-if not target:
-    raise SystemExit(f"target not found for extension {EXTENSION_ID}")
+def connect_cdp(timeout_seconds=30.0, poll_interval=0.5):
+    deadline = time.time() + timeout_seconds
+    last_error = None
 
-ws_url = target["webSocketDebuggerUrl"]
-host_port = ws_url.split("/")[2]
-host, port = host_port.split(":")
-path = "/" + "/".join(ws_url.split("/")[3:])
+    while running and time.time() < deadline:
+        try:
+            targets = fetch_targets()
+            target = find_target(targets)
+            if not target:
+                time.sleep(poll_interval)
+                continue
 
-sock = socket.create_connection((host, int(port)), timeout=5)
+            ws_url = target.get("webSocketDebuggerUrl")
+            if not ws_url:
+                last_error = RuntimeError("target missing webSocketDebuggerUrl")
+                time.sleep(poll_interval)
+                continue
+
+            host_port = ws_url.split("/")[2]
+            host, port = host_port.split(":")
+            path = "/" + "/".join(ws_url.split("/")[3:])
+
+            sock = socket.create_connection((host, int(port)), timeout=5)
+            try:
+                ws_handshake(sock, host, int(port), path)
+            except Exception:
+                sock.close()
+                raise
+            return target, sock
+        except Exception as exc:
+            last_error = exc
+            time.sleep(poll_interval)
+
+    if not running:
+        raise SystemExit("interrupted while waiting for CDP connection")
+
+    if last_error is not None:
+        raise SystemExit(f"failed to connect to CDP within {int(timeout_seconds)}s: {last_error}")
+
+    raise SystemExit(f"target not found for extension {EXTENSION_ID} within {int(timeout_seconds)}s")
+
+target, sock = connect_cdp(timeout_seconds=30.0)
 try:
-    ws_handshake(sock, host, int(port), path)
     send_and_wait(sock, {"id": 1, "method": "Page.enable"}, 1)
     send_and_wait(sock, {"id": 2, "method": "DOM.enable"}, 2)
     send_and_wait(sock, {"id": 3, "method": "Runtime.enable"}, 3)

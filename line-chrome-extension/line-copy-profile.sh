@@ -4,7 +4,7 @@
 set -euo pipefail
 
 SOURCE_DIR=""
-DEST_DIR="/tmp/google-chrome-cdp-profile"
+DEST_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/helper-utils/google-chrome-cdp-profile"
 CHROME_PROFILE_NAME="Default"
 
 usage() {
@@ -13,13 +13,13 @@ Usage: line-copy-profile.sh [options]
 
 Options:
   -s, --source DIR    Source Chrome user data dir
-  -d, --dest DIR      Destination user data dir (default: /tmp/google-chrome-cdp-profile)
+  -d, --dest DIR      Destination user data dir (default: ~/.local/share/helper-utils/google-chrome-cdp-profile)
   -p, --profile NAME   Profile folder to keep inside the user data dir (default: Default)
   -h, --help          Show this help
 
 Examples:
   ./line-chrome-extension/line-copy-profile.sh
-  ./line-chrome-extension/line-copy-profile.sh -s ~/.config/google-chrome -d /tmp/google-chrome-cdp-profile
+  ./line-chrome-extension/line-copy-profile.sh -s ~/.config/google-chrome -d ~/.local/share/helper-utils/google-chrome-cdp-profile
 EOF
 }
 
