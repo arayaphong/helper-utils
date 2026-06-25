@@ -505,16 +505,23 @@ html.helper-utils-dark-mode-root .imageMessageContent-module__button_view__4y-jN
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj,
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj pre {
-  color: #ffffff !important;
-  background-color: #1e293a !important;
+  color: #e2e8f0 !important;
+  background-color: #1e293b !important;
   opacity: 1 !important;
-  font-weight: 700 !important;
-  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.9) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
 }
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj {
   border: 1px solid rgba(148, 163, 184, 0.22) !important;
   border-radius: 0 !important;
+}
+
+html.helper-utils-dark-mode-root .chatroom-module__chatroom__eVUaK .systemMessage-module__text__7T3Lj,
+html.helper-utils-dark-mode-root .chatroom-module__chatroom__eVUaK .systemMessage-module__text__7T3Lj pre {
+  color: #e2e8f0 !important;
+  background-color: #1e293b !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
 }
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj pre {
@@ -695,4 +702,40 @@ html.helper-utils-dark-mode-root .actionGroup-module__action_box__-HA8N .actionG
 html.helper-utils-dark-mode-root .actionGroup-module__action_box__-HA8N .actionGroup-module__button_action__VwNgx circle[stroke],
 html.helper-utils-dark-mode-root .actionGroup-module__action_box__-HA8N .actionGroup-module__button_action__VwNgx g[stroke] {
   stroke: currentColor !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.24) !important;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.55) !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X *,
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X button {
+  color: #e2e8f0 !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X > div.alertModal-module__footer__--NJ3 > div > button.alertModal-module__button_cancel__EJ4Vz.button-module__button__NBD6v {
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+  border: 1px solid rgba(148, 163, 184, 0.32) !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X > div.alertModal-module__footer__--NJ3 > div > button.alertModal-module__button_cancel__EJ4Vz.button-module__button__NBD6v:hover {
+  color: #ffffff !important;
+  background-color: #334155 !important;
+  border-color: rgba(148, 163, 184, 0.46) !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X > div.alertModal-module__footer__--NJ3 > div > button.alertModal-module__button_confirm__h7mMU.button-module__button__NBD6v {
+  color: #ffffff !important;
+  background-color: #b3030d !important;
+  border: 1px solid #b91c1c !important;
+}
+
+html.helper-utils-dark-mode-root #modal-root > div > div > div > div.alertModal-module__modal__7957X > div.alertModal-module__footer__--NJ3 > div > button.alertModal-module__button_confirm__h7mMU.button-module__button__NBD6v:hover {
+  color: #ffffff !important;
+  background-color: #dc2626 !important;
+  border-color: #b91c1c !important;
 }
