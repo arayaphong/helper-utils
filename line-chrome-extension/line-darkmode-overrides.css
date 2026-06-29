@@ -484,6 +484,34 @@ html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-
   border-radius: 0 !important;
 }
 
+/* Self-side reply bubble: mirror the green self text bubble (copied from
+   the .helper-utils-self-message > .textMessageContent-module__content_wrap rule). */
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .replyMessageContent-module__content_wrap__D0K-5 {
+  background-color: #1f4d2e !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(134, 239, 172, 0.18) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
+  overflow: hidden !important;
+}
+
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .replyMessageContent-module__content_wrap__D0K-5 .username-module__username__vGQGj,
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .replyMessageContent-module__content_wrap__D0K-5 .replyMessageContent-module__text__0T50-,
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .replyMessageContent-module__content_wrap__D0K-5 .replyMessageContent-module__text__0T50- *,
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .replyMessageContent-module__content_wrap__D0K-5 .textMessageContent-module__text__EFwEN {
+  color: #f8fafc !important;
+}
+
 html.helper-utils-dark-mode-root .textMessageContent-module__text__EFwEN {
   color: #e2e8f0 !important;
 }
@@ -501,6 +529,60 @@ html.helper-utils-dark-mode-root .imageMessageContent-module__button_view__4y-jN
   box-shadow: none !important;
   outline: 0 !important;
   display: block !important;
+}
+
+/* Audio (voice) message bubble: was a light #efefef pill with dark text. */
+html.helper-utils-dark-mode-root .audioMessageContent-module__content_wrap__oWDgj {
+  background-color: #1e293b !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.35) inset !important;
+}
+
+html.helper-utils-dark-mode-root .audioMessageContent-module__play_info__tmjOL,
+html.helper-utils-dark-mode-root .audioMessageContent-module__play_time__4Ko4D,
+html.helper-utils-dark-mode-root .audioMessageContent-module__button_action__o2bFY,
+html.helper-utils-dark-mode-root .audioMessageContent-module__icon__NBWqv,
+html.helper-utils-dark-mode-root .audioMessageContent-module__icon__NBWqv svg,
+html.helper-utils-dark-mode-root .audioMessageContent-module__icon__NBWqv svg path {
+  color: #e2e8f0 !important;
+  fill: currentColor !important;
+}
+
+/* The whole bubble acts as the track; the played portion (value) is tinted as
+   it plays. Keep track transparent so the idle bubble stays a clean flat dark. */
+html.helper-utils-dark-mode-root .audioMessageContent-module__progress__1V-57 {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  color: #e2e8f0 !important;
+}
+
+html.helper-utils-dark-mode-root .audioMessageContent-module__progress__1V-57::-webkit-progress-bar {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+html.helper-utils-dark-mode-root .audioMessageContent-module__progress__1V-57::-webkit-progress-value {
+  background-color: rgba(148, 163, 184, 0.28) !important;
+}
+
+/* The bubble tail is a mask painted with its own background-color. On play,
+   LINE fills it with currentColor (now bright); lock it so it never changes. */
+html.helper-utils-dark-mode-root .audioMessageContent-module__tail__D5AGS {
+  background-color: transparent !important;
+}
+
+/* Self-side voice message: green like the self text bubble. */
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  > .audioMessageContent-module__content_wrap__oWDgj {
+  background-color: #1f4d2e !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(134, 239, 172, 0.18) !important;
+  box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
 }
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj,
