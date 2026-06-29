@@ -431,11 +431,30 @@ html.helper-utils-dark-mode-root .textMessageContent-module__content_wrap__238E1
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.35) inset !important;
 }
 
+/* Top-level text bubble: outline the bubble AND its mask-drawn tail with one
+   continuous line via drop-shadow on the bubble (a tail ::before mask clips its
+   own filter output). Direct-child selector excludes reply-nested bubbles, which
+   have no tail. Self side overrides the color below. */
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko > .textMessageContent-module__content_wrap__238E1 {
+  border: 0 !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(-1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 1px 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 -1px 0 rgba(148, 163, 184, 0.45)) !important;
+}
+
 html.helper-utils-dark-mode-root .message-module__content_inner__j-iko.helper-utils-self-message > .textMessageContent-module__content_wrap__238E1 {
   background-color: #1f4d2e !important;
   color: #f8fafc !important;
-  border: 1px solid rgba(134, 239, 172, 0.18) !important;
+  border: 0 !important;
   box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(-1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 1px 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 -1px 0 rgba(134, 239, 172, 0.35)) !important;
 }
 
 html.helper-utils-dark-mode-root .message-module__content_inner__j-iko.helper-utils-self-message > .textMessageContent-module__content_wrap__238E1 .textMessageContent-module__text__EFwEN,
@@ -480,8 +499,18 @@ html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-
   overflow: hidden !important;
 }
 
+/* Round the bubble and outline it (plus its mask-drawn tail) with a continuous
+   line. drop-shadow must live on the bubble, not the tail ::before: a mask clips
+   the tail's own filter output, so the shadow there is erased. Border removed so
+   the body outline isn't doubled. Self side overrides the color below. */
 html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-5:not([data-content-type="sticker"]) {
+  border: 0 !important;
   border-radius: 12px !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(-1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 1px 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 -1px 0 rgba(148, 163, 184, 0.45)) !important;
 }
 
 /* Self-side reply bubble: mirror the green self text bubble (copied from
@@ -491,9 +520,14 @@ html.helper-utils-dark-mode-root
   > .replyMessageContent-module__content_wrap__D0K-5 {
   background-color: #1f4d2e !important;
   color: #f8fafc !important;
-  border: 1px solid rgba(134, 239, 172, 0.18) !important;
+  border: 0 !important;
   border-radius: 12px !important;
   box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(-1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 1px 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 -1px 0 rgba(134, 239, 172, 0.35)) !important;
 }
 
 html.helper-utils-dark-mode-root
@@ -530,12 +564,19 @@ html.helper-utils-dark-mode-root .imageMessageContent-module__button_view__4y-jN
   display: block !important;
 }
 
-/* Audio (voice) message bubble: was a light #efefef pill with dark text. */
+/* Audio (voice) message bubble: was a light #efefef pill with dark text.
+   Border removed in favour of a drop-shadow outline so it also wraps the tail
+   (see the tail rule below). Self side overrides the color further down. */
 html.helper-utils-dark-mode-root .audioMessageContent-module__content_wrap__oWDgj {
   background-color: #1e293b !important;
   color: #e2e8f0 !important;
-  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  border: 0 !important;
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.35) inset !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(-1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 1px 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 -1px 0 rgba(148, 163, 184, 0.45)) !important;
 }
 
 html.helper-utils-dark-mode-root .audioMessageContent-module__play_info__tmjOL,
@@ -568,10 +609,17 @@ html.helper-utils-dark-mode-root .audioMessageContent-module__progress__1V-57::-
   background-color: rgba(148, 163, 184, 0.28) !important;
 }
 
-/* The bubble tail is a mask painted with its own background-color. On play,
-   LINE fills it with currentColor (now bright); lock it so it never changes. */
+/* The tail is a mask painted with its own background-color (LINE flips it to a
+   bright currentColor on play). Pin it to the bubble fill so it reads as a solid
+   tail, never changes on play, and feeds the content_wrap drop-shadow outline. */
 html.helper-utils-dark-mode-root .audioMessageContent-module__tail__D5AGS {
-  background-color: transparent !important;
+  background-color: #1e293b !important;
+}
+
+html.helper-utils-dark-mode-root
+  .message-module__content_inner__j-iko.helper-utils-self-message
+  .audioMessageContent-module__tail__D5AGS {
+  background-color: #1f4d2e !important;
 }
 
 /* Self-side voice message: green like the self text bubble. */
@@ -580,8 +628,13 @@ html.helper-utils-dark-mode-root
   > .audioMessageContent-module__content_wrap__oWDgj {
   background-color: #1f4d2e !important;
   color: #f8fafc !important;
-  border: 1px solid rgba(134, 239, 172, 0.18) !important;
+  border: 0 !important;
   box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(-1px 0 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 1px 0 rgba(134, 239, 172, 0.35))
+    drop-shadow(0 -1px 0 rgba(134, 239, 172, 0.35)) !important;
 }
 
 html.helper-utils-dark-mode-root .systemMessage-module__text__7T3Lj,
