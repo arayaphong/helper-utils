@@ -481,7 +481,7 @@ html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-
 }
 
 html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-5:not([data-content-type="sticker"]) {
-  border-radius: 0 !important;
+  border-radius: 12px !important;
 }
 
 /* Self-side reply bubble: mirror the green self text bubble (copied from
@@ -494,7 +494,6 @@ html.helper-utils-dark-mode-root
   border: 1px solid rgba(134, 239, 172, 0.18) !important;
   border-radius: 12px !important;
   box-shadow: 0 0 0 1px rgba(6, 95, 70, 0.35) inset !important;
-  overflow: hidden !important;
 }
 
 html.helper-utils-dark-mode-root
@@ -667,6 +666,17 @@ html.helper-utils-dark-mode-root strong.mention {
   font-weight: 700 !important;
   background: transparent !important;
   text-shadow: none !important;
+}
+
+/* Link preview card (linkbox): title/description ship as near-black text. */
+html.helper-utils-dark-mode-root .linkbox-module__title__D-OVq,
+html.helper-utils-dark-mode-root .linkbox-module__title__D-OVq span {
+  color: #e2e8f0 !important;
+}
+
+html.helper-utils-dark-mode-root .linkbox-module__description__AKtYP,
+html.helper-utils-dark-mode-root .linkbox-module__description__AKtYP span {
+  color: #94a3b8 !important;
 }
 
 html.helper-utils-dark-mode-root a {
