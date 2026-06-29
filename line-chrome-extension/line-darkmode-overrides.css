@@ -492,11 +492,19 @@ html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-
   color: #e2e8f0 !important;
 }
 
+/* Sticker reply: same continuous tail + outline as other replies. The sticker
+   image sits inset (nowhere near the corners), so the old overflow:hidden wasn't
+   clipping it — but it WAS clipping the tail, so drop the hidden and outline via
+   drop-shadow like the rest. Self side picks up the green color from its rule. */
 html.helper-utils-dark-mode-root .replyMessageContent-module__content_wrap__D0K-5[data-content-type="sticker"] {
-  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  border: 0 !important;
   border-radius: 12px !important;
   box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.35) inset !important;
-  overflow: hidden !important;
+  filter:
+    drop-shadow(1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(-1px 0 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 1px 0 rgba(148, 163, 184, 0.45))
+    drop-shadow(0 -1px 0 rgba(148, 163, 184, 0.45)) !important;
 }
 
 /* Round the bubble and outline it (plus its mask-drawn tail) with a continuous
